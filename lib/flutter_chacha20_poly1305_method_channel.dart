@@ -17,6 +17,7 @@ class MethodChannelFlutterChacha20Poly1305 extends FlutterChacha20Poly1305Platfo
     return encryptedObj;
   }
 
+  /// key must be in base64 or hex encoding string depending on keyEncoding, outputEncoding should be in "base64" or "hex"
   @override
   Future<Map?> encryptString(String string, String key, String keyEncoding, String outputEncoding) async {
     final encryptedObj = await methodChannel.invokeMethod<Map>('encryptString', { 'string': string, 'key': key, 'keyEncoding': keyEncoding, 'outputEncoding': outputEncoding });
@@ -33,6 +34,7 @@ class MethodChannelFlutterChacha20Poly1305 extends FlutterChacha20Poly1305Platfo
     return decrypted;
   }
 
+  /// this method takes inputs in base64 or hex encoding string depending on inputEncoding
   @override
   Future<String?> decryptString(String inputEncoding, String encryptedString, String key, String nonce, String tag) async {
     final encryptedObj = await methodChannel.invokeMethod<String>('decryptString', { 'inputEncoding': inputEncoding, 'encryptedString': encryptedString, 'key': key, 'nonce': nonce, 'tag': tag });

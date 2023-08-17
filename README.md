@@ -3,7 +3,7 @@
 ChaCha20-Poly1305 encryption/decryption for Flutter.
 Native implementations make sure it has the fastest performance.
 
-# Requirements
+## Requirements
 iOS >= 13.0\
 Android >= 26
 
